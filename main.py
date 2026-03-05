@@ -99,7 +99,45 @@ Rules:
 """
 
     plan = ask(plan_prompt)
+
+    research_results = ""
+    extracted_leads = ""
+
+    if "research" in goal.lower():
+        research_results = tools.search_web(goal, 5)
+        tools.write_file("jobs/latest_research.json", research_results)
+
+        extract_prompt = f"""
+You are extracting leads from web research.
+
+Goal:
+{goal}
+
+Raw search results:
+{research_results}
+
+Return a plain text lead list.
+Each lead should be on its own line like this:
+
+Name | Company | Website
+
+If some fields are missing, still include the lead with whatever is available.
+Do not use JSON.
+Do not add explanations.
+"""
+
+        extracted_leads = ask(extract_prompt)
+        tools.write_file("leads/realtors.txt", extracted_leads)
+
     tools.write_file("jobs/latest_plan.txt", f"GOAL:\n{goal}\n\nPLAN:\n{plan}")
+
+    if research_results:
+        return (
+            "Plan saved to workspace/jobs/latest_plan.txt\n"
+            "Research saved to workspace/jobs/latest_research.json\n"
+            "Lead list saved to workspace/leads/realtors.txt\n\n"
+            f"{plan}"
+        )
 
     return f"Plan saved to workspace/jobs/latest_plan.txt\n\n{plan}"
 def main():

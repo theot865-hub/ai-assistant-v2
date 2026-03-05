@@ -1,0 +1,11 @@
+GOAL:
+research 10 Victoria realtors
+
+PLAN:
+Here is a short step-by-step plan to research 10 Victoria realtors:
+
+1. Open a spreadsheet program (e.g. Google Sheets) and create a new sheet.
+2. Label the top row with the following columns: Realtor Name, Company, Phone Number, Email, and Reviews.
+3. Go to online directories or review websites (e.g. RateMyAgent, Zillow, Realtor.ca) and search for Victoria realtors.
+4. For each realtor, fill in the corresponding columns with the requested information.
+5. Repeat step 3 and 4 until you have researched and filled in the information for 10 Victoria realtors.
