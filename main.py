@@ -84,7 +84,24 @@ def run_tool(call: dict) -> str:
         return tools.search_web(call["query"], call.get("max_results", 5))
 
     return f"Unknown tool: {t}"
+def handle_goal_mode(user: str) -> str:
+    goal = user.replace("goal:", "", 1).strip()
 
+    plan_prompt = f"""
+Create a short step-by-step plan for this goal:
+
+{goal}
+
+Rules:
+- 3 to 6 steps
+- plain text only
+- practical actions
+"""
+
+    plan = ask(plan_prompt)
+    tools.write_file("jobs/latest_plan.txt", f"GOAL:\n{goal}\n\nPLAN:\n{plan}")
+
+    return f"Plan saved to workspace/jobs/latest_plan.txt\n\n{plan}"
 def main():
     print("Assistant v2 ready (type 'exit' to quit)")
 
@@ -92,7 +109,10 @@ def main():
         user = input("You: ").strip()
         if user.lower() == "exit":
             break
-
+        if user.lower().startswith("goal:"):
+            result = handle_goal_mode(user)
+            print("AI:", result)
+            continue
         # Pull name if it exists (quietly) so the model can personalize answers
         name = tools.memory_get("name")
         name_line = ""
