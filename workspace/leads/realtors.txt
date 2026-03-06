@@ -1,11 +1,11 @@
-Here is the plain text lead list:
+Here is the extracted lead list in plain text format:
 
-REALTORS in Victoria, BC - Real Estate Agents | REALTOR.ca | https://www.realtor.ca/realtors/bc/victoria
+Victoria Real Estate Board | https://www.vreb.org | https://www.vreb.org
 
-Find a REALTOR - The Victoria Real Estate Board | https://www.vreb.org/realtors/find-a-realtor
+Find a REALTOR | | https://www.vreb.org/realtors/find-a-realtor
 
-Victoria, BC REALTOR Real Estate Agent Reviews | RankMyAgent.com | https://rankmyagent.com/city/victoria-bc-real-estate-agent-reviews-ratings
+Victoria Real Estate Board | | https://www.vreb.org
 
-REMAX Generation- Victoria REALTORS | RankMyAgent.com | https://rankmyagent.com/brokerage/remax-generation-victoria
+RankMyAgent | | https://rankmyagent.com
 
-Real Estate Agents in Victoria, BC (with Reviews) - REW | https://www.rew.ca/agents/areas/victoria-bc
+Note: Some leads may be missing fields, but I've included them as per your request.

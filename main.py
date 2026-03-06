@@ -20,6 +20,7 @@ Available tools (JSON formats):
 {"tool":"memory_get","key":"name"}
 {"tool":"memory_list"}
 {"tool":"search_web","query":"Victoria BC pressure washing marketing ideas","max_results":5}
+{"tool":"read_webpage","url":"https://example.com"}
 
 Memory behavior:
 - If the user tells you their name, store it with memory_set key="name".
@@ -82,6 +83,9 @@ def run_tool(call: dict) -> str:
 
     if t == "search_web":
         return tools.search_web(call["query"], call.get("max_results", 5))
+    
+    if t == "read_webpage":
+        return tools.read_webpage(call["url"])
 
     return f"Unknown tool: {t}"
 def handle_goal_mode(user: str) -> str:
@@ -106,6 +110,21 @@ Rules:
     if "research" in goal.lower():
         research_results = tools.search_web(goal, 5)
         tools.write_file("jobs/latest_research.json", research_results)
+       
+        webpage_text = ""
+
+        try:
+                parsed_results = json.loads(research_results)
+
+                for r in parsed_results[:3]:
+                    if "url" in r:
+                        page = tools.read_webpage(r["url"])
+                        webpage_text += "\n\n" + page
+
+        except Exception:
+                webpage_text = ""
+
+        tools.write_file("jobs/latest_webpage.txt", webpage_text)
 
         extract_prompt = f"""
 You are extracting leads from web research.
@@ -113,8 +132,8 @@ You are extracting leads from web research.
 Goal:
 {goal}
 
-Raw search results:
-{research_results}
+Webpage text:
+{webpage_text}
 
 Return a plain text lead list.
 Each lead should be on its own line like this:

@@ -89,3 +89,28 @@ def search_web(query: str, max_results: int = 5) -> str:
                 "snippet": r.get("body") or r.get("snippet"),
             })
     return json.dumps(results, ensure_ascii=False, indent=2)
+import requests
+from bs4 import BeautifulSoup
+
+
+def read_webpage(url: str) -> str:
+    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0"
+        }
+
+        r = requests.get(url, headers=headers, timeout=10)
+
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        # remove scripts and styles
+        for tag in soup(["script", "style"]):
+            tag.decompose()
+
+        text = soup.get_text(separator="\n")
+
+        # shorten to avoid huge context
+        return text[:5000]
+
+    except Exception as e:
+        return f"Error reading page: {e}"
