@@ -1,11 +1,11 @@
 GOAL:
-research 10 Victoria realtors
+research Victoria BC realtors
 
 PLAN:
-Here is a short step-by-step plan to research 10 Victoria realtors:
+Here is a short step-by-step plan to research Victoria BC realtors:
 
-1. Open a spreadsheet program (e.g. Google Sheets) and create a new sheet.
-2. Label the top row with the following columns: Realtor Name, Company, Phone Number, Email, and Reviews.
-3. Go to online directories or review websites (e.g. RateMyAgent, Zillow, Realtor.ca) and search for Victoria realtors.
-4. For each realtor, fill in the corresponding columns with the requested information.
-5. Repeat step 3 and 4 until you have researched and filled in the information for 10 Victoria realtors.
+1. **Start with online searches**: Open a web browser and search for "Victoria BC realtors" or "real estate agents in Victoria BC" to get a list of results.
+2. **Check online directories**: Visit online directories like Realtor.ca, VictoriaRealEstate.com, or CanadaRealEstate.com to find a list of licensed realtors in Victoria.
+3. **Read online reviews**: Look up review websites like Google Reviews, Yelp, or Houzz to see what past clients have to say about their experience with specific realtors.
+4. **Check professional associations**: Visit the websites of professional associations like the Victoria Real Estate Board (VREB) or the Real Estate Council of British Columbia (RECBC) to find a list of licensed realtors in Victoria.
+5. **Contact a few top choices**: Reach out to 2-3 realtors who have caught your attention and ask them questions about their experience, services, and commission rates.
