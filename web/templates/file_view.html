@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}File View | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>File Preview</h2>
+  <p><a href="/files">Back to files</a></p>
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% else %}
+    <p>Path: <code>{{ relative_path }}</code></p>
+    {% if file_kind == "csv" %}
+      <table class="table">
+        <thead>
+          <tr>
+            {% for col in csv_header %}
+              <th>{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in csv_rows %}
+            <tr>
+              {% for cell in row %}
+                <td>{{ cell }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if csv_truncated %}
+        <p>Preview limited to the first 50 rows.</p>
+      {% endif %}
+    {% elif file_kind == "text" %}
+      <pre>{{ text_preview }}</pre>
+      {% if text_truncated %}
+        <p>Text preview was truncated.</p>
+      {% endif %}
+    {% else %}
+      <p>Preview is available for CSV/TXT/JSON/JSONL/LOG/MD files only.</p>
+    {% endif %}
+  {% endif %}
+</section>
+{% endblock %}
+

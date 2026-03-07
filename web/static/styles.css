@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+.header {
+  background: #0f172a;
+  color: #fff;
+  padding: 16px 24px;
+}
+
+.header h1 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+
+.header nav a {
+  color: #cbd5e1;
+  margin-right: 14px;
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  color: #fff;
+}
+
+.container {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+pre {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #0b1220;
+  color: #e2e8f0;
+  overflow-x: auto;
+  font-size: 12px;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+.command-form {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.command-form label {
+  width: 100%;
+  font-weight: 600;
+}
+
+.command-form input {
+  flex: 1 1 360px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+button {
+  border: 1px solid #0f172a;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: #0f172a;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #111827;
+}
+
+.quick-actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  background: #f8fafc;
+}
+
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-turn {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  background: #f8fafc;
+}
+
+.chat-bubble {
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.chat-bubble:last-child {
+  margin-bottom: 0;
+}
+
+.chat-bubble.user {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.chat-bubble.assistant {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.chat-meta {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.chat-text {
+  font-size: 15px;
+}
+
+.chat-row {
+  margin-bottom: 6px;
+}
+
+.artifact-list {
+  margin: 6px 0 0 16px;
+  padding: 0;
+}

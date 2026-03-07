@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Home | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Command Console</h2>
+  <p>This web app is connected to <code>{{ backend_url }}</code>.</p>
+  <form method="post" action="/command" class="command-form">
+    <label for="command">Command</label>
+    <input
+      id="command"
+      name="command"
+      type="text"
+      placeholder="Example: run pipeline for victoria pressure washing businesses"
+      value="{{ command_text }}"
+      required
+    >
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="quick-actions">
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="run pipeline">
+      <button type="submit">Run pipeline</button>
+    </form>
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="run leads">
+      <button type="submit">Run leads</button>
+    </form>
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="find businesses in victoria">
+      <button type="submit">Run business discovery</button>
+    </form>
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="run outreach">
+      <button type="submit">Run outreach</button>
+    </form>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Console History</h2>
+  {% if error_data %}
+    <p class="error">{{ error_data.error }}</p>
+  {% endif %}
+  {% if interactions %}
+    <div class="chat-history">
+      {% for item in interactions | reverse %}
+      <div class="chat-turn">
+        <div class="chat-bubble user">
+          <div class="chat-meta">{{ item.timestamp }}</div>
+          <div class="chat-text">{{ item.command_text }}</div>
+        </div>
+        {% for step in item.steps %}
+          <div class="chat-bubble assistant">
+            <div class="chat-meta">{{ step.timestamp }}</div>
+            <div class="chat-row"><strong>Mapped worker:</strong> <code>{{ step.requested_worker }}</code>{% if step.requested_worker != step.mapped_worker %} → <code>{{ step.mapped_worker }}</code>{% endif %}</div>
+            <div class="chat-row"><strong>Result:</strong> {% if step.result_data.ok %}{{ step.result_data.result }}{% else %}<span class="error">{{ step.result_data.error }}</span>{% endif %}</div>
+            <div class="chat-row">
+              <strong>Artifacts:</strong>
+              {% if step.artifact_links %}
+                <ul class="artifact-list">
+                  {% for artifact in step.artifact_links %}
+                    <li>
+                      {% if artifact.available %}
+                        <a href="{{ artifact.download_url }}"><code>{{ artifact.path }}</code></a>
+                      {% else %}
+                        <code>{{ artifact.path }}</code>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <span>(none)</span>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No interactions yet. Submit a command to start.</p>
+  {% endif %}
+</section>
+{% endblock %}

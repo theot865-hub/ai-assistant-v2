@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Runs | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Latest Success By Worker</h2>
+  {% if latest_data.ok and latest_data.latest %}
+    <pre>{{ latest_data.latest | tojson(indent=2) }}</pre>
+  {% elif latest_data.error %}
+    <p class="error">{{ latest_data.error }}</p>
+  {% else %}
+    <p>No successful run state available yet.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>Run History (n={{ history_limit }})</h2>
+  {% if history_data.ok and history_data.history %}
+    <pre>{{ history_data.history | tojson(indent=2) }}</pre>
+  {% elif history_data.error %}
+    <p class="error">{{ history_data.error }}</p>
+  {% else %}
+    <p>No run history available yet.</p>
+  {% endif %}
+</section>
+{% endblock %}
+
