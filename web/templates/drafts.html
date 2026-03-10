@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Drafts | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Draft Review Queue</h2>
+  <p>Showing up to {{ draft_limit }} drafts.</p>
+  <p>Only drafts owned by your account are shown.</p>
+  <form method="get" action="/drafts" class="command-form">
+    <label for="status">Status filter</label>
+    <select id="status" name="status">
+      <option value="" {% if not status_filter %}selected{% endif %}>All</option>
+      <option value="draft" {% if status_filter == "draft" %}selected{% endif %}>draft</option>
+      <option value="approved" {% if status_filter == "approved" %}selected{% endif %}>approved</option>
+      <option value="rejected" {% if status_filter == "rejected" %}selected{% endif %}>rejected</option>
+      <option value="sent" {% if status_filter == "sent" %}selected{% endif %}>sent</option>
+    </select>
+    <button type="submit">Apply</button>
+  </form>
+</section>
+
+<section class="card">
+  {% if drafts %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Lead</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Approved</th>
+          <th>Sent</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for draft in drafts %}
+          <tr>
+            <td><code>{{ draft.id }}</code></td>
+            <td>{{ draft.lead_name }}</td>
+            <td>{{ draft.email or "(none)" }}</td>
+            <td>{{ draft.subject or "(empty)" }}</td>
+            <td><code>{{ draft.status }}</code></td>
+            <td>{{ draft.created_at }}</td>
+            <td>{{ draft.approved_at or "-" }}</td>
+            <td>{{ draft.sent_at or "-" }}</td>
+            <td><a href="/drafts/{{ draft.id }}">Review</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No drafts found for this filter.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Gmail Status | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Gmail Connection</h2>
+  {% if oauth_configured %}
+    <p>OAuth configuration is set.</p>
+  {% else %}
+    <p class="error">OAuth is not configured yet. This is currently a setup placeholder.</p>
+    <p>Set env vars: <code>GMAIL_CLIENT_ID</code>, <code>GMAIL_CLIENT_SECRET</code>, <code>GMAIL_REDIRECT_URI</code>.</p>
+  {% endif %}
+
+  {% if gmail_connection %}
+    <p><strong>Connected email:</strong> {{ gmail_connection.email or current_user.email }}</p>
+    <p><strong>Scope:</strong> <code>{{ gmail_connection.scope or "(unknown)" }}</code></p>
+    <p><strong>Token expiry:</strong> <code>{{ gmail_connection.token_expiry or "(unknown)" }}</code></p>
+    <p><strong>Updated:</strong> <code>{{ gmail_connection.updated_at }}</code></p>
+  {% else %}
+    <p>No Gmail connection stored for this account yet.</p>
+  {% endif %}
+
+  <div class="quick-actions">
+    <a href="/gmail/connect">Connect Gmail</a>
+    <a href="/drafts">Go to Draft Review</a>
+  </div>
+</section>
+{% endblock %}

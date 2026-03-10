@@ -1,0 +1,19 @@
+Goal:
+Offer relevant local services with clear value.
+
+Audience:
+local businesses in Victoria BC
+
+Tone:
+Friendly, concise, local.
+
+Offer:
+Provide a quick quote.
+
+CallToAction:
+Reply to get a quick quote.
+
+SenderContext:
+City: Victoria BC
+Services: driveway cleaning, walkway cleaning, patio cleaning, siding wash
+Angle: local pressure washing service with quick quotes, reliable scheduling, and clean finishes

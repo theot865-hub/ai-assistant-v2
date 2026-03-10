@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Leads | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Leads Overview</h2>
+  <p>Showing up to {{ lead_limit }} leads from <code>{{ db_path }}</code>.</p>
+</section>
+
+<section class="card">
+  {% if leads %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Lead</th>
+          <th>Website</th>
+          <th>Source / Query</th>
+          <th>Status</th>
+          <th>Contact</th>
+          <th>Draft</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in leads %}
+          <tr>
+            <td>
+              <strong>{{ row.name }}</strong><br>
+              <code>#{{ row.lead_id }}</code>
+            </td>
+            <td>
+              {% if row.website %}
+                <a href="{{ row.website }}" target="_blank" rel="noopener noreferrer">{{ row.website }}</a>
+              {% else %}
+                (none)
+              {% endif %}
+            </td>
+            <td>
+              <div><strong>source:</strong> {{ row.source or "(none)" }}</div>
+              <div><strong>query:</strong> {{ row.query or "(none)" }}</div>
+              <div><strong>source type:</strong> <code>{{ row.source_type or "(none)" }}</code></div>
+              <div><strong>entity type:</strong> <code>{{ row.entity_type or "(none)" }}</code></div>
+              <div><strong>extraction source:</strong> {{ row.extraction_source or "-" }}</div>
+              <div><strong>parent source URL:</strong> {{ row.parent_source_url or "-" }}</div>
+              <div><strong>quality score:</strong> {{ row.quality_score or "-" }}</div>
+              <div><strong>validation:</strong> {{ row.validation_reason or "-" }}</div>
+            </td>
+            <td>
+              <div><code>{{ row.status or "unknown" }}</code></div>
+              <div>{{ row.discovered_at }}</div>
+            </td>
+            <td>
+              <div><strong>email:</strong> {{ row.contact_email or "(none)" }}</div>
+              <div><strong>phone:</strong> {{ row.contact_phone or "(none)" }}</div>
+              <div><strong>confidence:</strong> {{ row.contact_confidence or "-" }}</div>
+              <div><strong>count:</strong> {{ row.contact_count }}</div>
+            </td>
+            <td>
+              {% if row.draft_id %}
+                <div><strong>status:</strong> <code>{{ row.draft_status }}</code></div>
+                <div><strong>to:</strong> {{ row.draft_email or "(none)" }}</div>
+                <a href="/drafts/{{ row.draft_id }}">Open Draft {{ row.draft_id }}</a>
+              {% else %}
+                <span>(no draft)</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No leads in the database yet. Run business discovery first.</p>
+  {% endif %}
+</section>
+{% endblock %}

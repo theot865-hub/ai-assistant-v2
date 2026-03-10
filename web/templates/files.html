@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Files | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Workspace Files</h2>
+  <p>Showing files from <code>workspace/leads</code>, <code>workspace/jobs</code>, and <code>workspace/logs</code>.</p>
+  {% if files %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Relative Path</th>
+          <th>Size (bytes)</th>
+          <th>Modified</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in files %}
+        <tr>
+          <td><a href="{{ item.view_url }}">{{ item.filename }}</a></td>
+          <td>{{ item.relative_path }}</td>
+          <td>{{ item.size_bytes }}</td>
+          <td>{{ item.modified_time }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No files found.</p>
+  {% endif %}
+</section>
+{% endblock %}
+

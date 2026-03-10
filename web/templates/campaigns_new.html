@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}New Campaign | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>New Campaign</h2>
+  <p>Fill in this form to discover local leads, enrich contact details, and generate personalized outreach drafts.</p>
+  {% if summary_message %}
+    <p>{{ summary_message }}</p>
+  {% endif %}
+  {% if errors %}
+    <div class="error-box">
+      <p><strong>Please fix these items:</strong></p>
+      <ul class="artifact-list">
+        {% for err in errors %}
+          <li class="error">{{ err }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if recent_campaigns %}
+    <p><strong>Your recent campaigns:</strong></p>
+    <ul class="artifact-list">
+      {% for campaign in recent_campaigns %}
+        <li>
+          <a href="/campaigns/{{ campaign.id }}">{{ campaign.name }}</a>
+          <span>(<code>{{ campaign.status }}</code>)</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<form method="post" action="/campaigns/new" class="campaign-form">
+  <section class="card">
+    <h3>Section A: Lead Request</h3>
+    <div class="campaign-grid">
+      <label for="campaign_name">Campaign name (optional)</label>
+      <input id="campaign_name" name="campaign_name" type="text" value="{{ form_data.campaign_name }}" placeholder="Spring realtor outreach in Victoria">
+
+      <label for="audience">Audience / business type</label>
+      <input id="audience" name="audience" type="text" value="{{ form_data.audience }}" placeholder="realtors" required>
+
+      <label for="location">Location</label>
+      <input id="location" name="location" type="text" value="{{ form_data.location }}" placeholder="Victoria BC" required>
+
+      <label for="max_leads">Max leads (optional)</label>
+      <input id="max_leads" name="max_leads" type="number" min="1" value="{{ form_data.max_leads }}" placeholder="40">
+
+      <label for="extra_notes">Extra notes (optional)</label>
+      <textarea id="extra_notes" name="extra_notes" rows="4" placeholder="Focus on smaller independent agencies">{{ form_data.extra_notes }}</textarea>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Section B: Sender / Campaign Info</h3>
+    <div class="campaign-grid">
+      <label for="sender_name">Sender name</label>
+      <input id="sender_name" name="sender_name" type="text" value="{{ form_data.sender_name }}" required>
+
+      <label for="business_name">Business name</label>
+      <input id="business_name" name="business_name" type="text" value="{{ form_data.business_name }}" required>
+
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="text" value="{{ form_data.phone }}" required>
+
+      <label for="email">Email (optional)</label>
+      <input id="email" name="email" type="text" value="{{ form_data.email }}" placeholder="hello@example.com">
+
+      <label for="website">Website (optional)</label>
+      <input id="website" name="website" type="text" value="{{ form_data.website }}" placeholder="https://example.com">
+
+      <label for="city">City</label>
+      <input id="city" name="city" type="text" value="{{ form_data.city }}" required>
+
+      <label for="services_offered">Services offered (comma-separated)</label>
+      <textarea id="services_offered" name="services_offered" rows="3" placeholder="driveway cleaning, walkway cleaning, patio cleaning">{{ form_data.services_offered }}</textarea>
+
+      <label for="unique_angle">Unique angle</label>
+      <textarea id="unique_angle" name="unique_angle" rows="3" placeholder="Local service, fast scheduling, reliable job completion">{{ form_data.unique_angle }}</textarea>
+
+      <label for="offer">Offer</label>
+      <textarea id="offer" name="offer" rows="3" placeholder="Quick quote for driveway cleaning before listing photos">{{ form_data.offer }}</textarea>
+
+      <label for="tone">Tone</label>
+      <input id="tone" name="tone" type="text" value="{{ form_data.tone }}" placeholder="Friendly, short, local, respectful">
+
+      <label for="call_to_action">Call to action</label>
+      <textarea id="call_to_action" name="call_to_action" rows="3" placeholder="Reply if you'd like a quick quote this week">{{ form_data.call_to_action }}</textarea>
+    </div>
+    <div class="campaign-actions">
+      <button type="submit">Run Campaign</button>
+    </div>
+  </section>
+</form>
+{% endblock %}

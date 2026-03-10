@@ -1,0 +1,19 @@
+Goal:
+Quick quote for exterior cleaning
+
+Audience:
+dentists in Saanich BC
+
+Tone:
+friendly
+
+Offer:
+Quick quote for exterior cleaning
+
+CallToAction:
+Reply for a quote
+
+SenderContext:
+City: Victoria BC
+Services: driveway cleaning, walkway cleaning
+Angle: local quick quotes

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Draft {{ draft.id }} | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Draft {{ draft.id }}</h2>
+  <p><strong>Lead:</strong> {{ draft.lead_name }}{% if draft.lead_domain %} (<code>{{ draft.lead_domain }}</code>){% endif %}</p>
+  <p><strong>Website:</strong> {% if draft.lead_website %}<a href="{{ draft.lead_website }}" target="_blank" rel="noopener noreferrer">{{ draft.lead_website }}</a>{% else %}(none){% endif %}</p>
+  <p><strong>Status:</strong> <code>{{ draft.status }}</code></p>
+  <p><strong>Created:</strong> {{ draft.created_at }}</p>
+  <p><strong>Approved:</strong> {{ draft.approved_at or "-" }}</p>
+  <p><strong>Sent:</strong> {{ draft.sent_at or "-" }}</p>
+  <p><strong>Sender profile:</strong> <code>{{ draft.sender_profile or "(none)" }}</code></p>
+  <p><strong>Campaign prompt:</strong> <code>{{ draft.campaign_prompt or "(none)" }}</code></p>
+  <p><strong>Gmail:</strong>
+    {% if gmail_connected %}
+      <span class="status-pill supported">connected</span>
+    {% else %}
+      <span class="status-pill partial">not connected</span>
+      <a href="/gmail/status">Connect Gmail</a>
+    {% endif %}
+  </p>
+</section>
+
+<section class="card">
+  <h2>Edit Draft</h2>
+  <form method="post" action="/drafts/{{ draft.id }}/edit">
+    <div class="draft-form-grid">
+      <label for="email">To Email</label>
+      <input id="email" name="email" type="text" value="{{ draft.email }}">
+
+      <label for="subject">Subject</label>
+      <input id="subject" name="subject" type="text" value="{{ draft.subject }}" required>
+
+      <label for="body">Body</label>
+      <textarea id="body" name="body" rows="12" required>{{ draft.body }}</textarea>
+
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="draft" {% if draft.status == "draft" %}selected{% endif %}>draft</option>
+        <option value="approved" {% if draft.status == "approved" %}selected{% endif %}>approved</option>
+        <option value="rejected" {% if draft.status == "rejected" %}selected{% endif %}>rejected</option>
+        <option value="sent" {% if draft.status == "sent" %}selected{% endif %}>sent</option>
+      </select>
+    </div>
+    <div class="draft-actions">
+      <button type="submit">Save Edits</button>
+    </div>
+  </form>
+  <div class="draft-actions">
+    <form method="post" action="/drafts/{{ draft.id }}/approve">
+      <button type="submit">Approve</button>
+    </form>
+    <form method="post" action="/drafts/{{ draft.id }}/reject">
+      <button type="submit" class="danger">Reject</button>
+    </form>
+    <form method="post" action="/drafts/{{ draft.id }}/send">
+      <button type="submit">Send via Gmail</button>
+    </form>
+  </div>
+  {% if draft.status != "approved" %}
+    <p>Only approved drafts can be sent.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>Lead Contacts</h2>
+  {% if contacts %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Source Page</th>
+          <th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for contact in contacts %}
+          <tr>
+            <td><code>{{ contact.id }}</code></td>
+            <td>{{ contact.email or "(none)" }}</td>
+            <td>{{ contact.phone or "(none)" }}</td>
+            <td>{{ contact.source_page or "(none)" }}</td>
+            <td>{{ "%.2f"|format(contact.confidence) }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No contacts recorded for this lead.</p>
+  {% endif %}
+</section>
+{% endblock %}

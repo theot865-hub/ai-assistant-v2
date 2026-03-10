@@ -1,0 +1,295 @@
+{
+  "_validation": {
+    "required_fields": [
+      "name",
+      "business",
+      "city",
+      "phone"
+    ],
+    "disallowed_values": [
+      "REPLACE_ME",
+      "",
+      "null"
+    ]
+  },
+  "pressure_washing_buddy": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning",
+      "siding wash"
+    ],
+    "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes"
+  },
+  "campaign_breakage-smoke-20260307151759-66bdd6": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_breakage-smoke-2-20260307151839-28a25a": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_spring-realtor-outreach-20260307160237-1f4a7d": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning",
+      "siding wash"
+    ],
+    "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes",
+    "email": "theot865@icloud.com",
+    "website": "gmail.com"
+  },
+  "campaign_spring-realtor-outreach-victoria-20260308175330-31a5d8": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning",
+      "siding wash"
+    ],
+    "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_quality-realtor-test-20260308180929-e2b1d0": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_quality-realtor-test-2-20260308181100-525d56": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_quality-realtor-test-3-20260308181341-bbba9a": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_quality-realtor-test-4-20260308181523-f38954": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_quality-realtor-test-5-20260308181703-77739e": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_quality-realtor-test-6-20260308181849-06a8b6": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0142",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "Local fast quotes and reliable arrival",
+    "email": "hello@example.com",
+    "website": "https://example.com"
+  },
+  "campaign_integration-roofing-campaign-20260308233958-d50a72": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_integration-dentist-campaign-20260308234637-6345f4": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_route-campaign-smoke-20260308235223-64cc59": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_service-full-run-campaign-20260308235223-664406": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_route-smoke-campaign-20260308235844-b81a50": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_service-summary-demo-20260309000509-2ee72a": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_orchestration-test-campaign-20260309000909-3e8a3b": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning",
+      "patio cleaning"
+    ],
+    "angle": "fast local quotes and reliable scheduling",
+    "email": "",
+    "website": ""
+  },
+  "campaign_orchestration-route-created-campaign-20260309001341-7ba0b7": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_campaignservice-refactor-test-20260309002426-6ed96f": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning",
+      "walkway cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  },
+  "campaign_diagnostics-campaign-20260309005506-083859": {
+    "name": "Theo Taylor",
+    "business": "Pressure Washing Buddy",
+    "city": "Victoria BC",
+    "phone": "250-555-0134",
+    "services": [
+      "driveway cleaning"
+    ],
+    "angle": "local quick quotes",
+    "email": "",
+    "website": ""
+  }
+}

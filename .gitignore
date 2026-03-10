@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Logs
+workspace/logs/
+
+# Generated data
+workspace/leads/
+workspace/jobs/
+
+# SQLite
+*.sqlite3
+
+.env

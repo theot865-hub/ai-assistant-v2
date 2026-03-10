@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Artifacts | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Artifacts</h2>
+  {% if selected_worker %}
+    <p>Filtered worker: <code>{{ selected_worker }}</code></p>
+  {% endif %}
+  {% if artifacts_data.ok %}
+    <pre>{{ artifacts_data | tojson(indent=2) }}</pre>
+  {% elif artifacts_data.error %}
+    <p class="error">{{ artifacts_data.error }}</p>
+  {% else %}
+    <p>No artifact data available yet.</p>
+  {% endif %}
+</section>
+{% endblock %}
+

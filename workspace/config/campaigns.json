@@ -1,0 +1,984 @@
+{
+  "breakage-smoke-20260307151759-66bdd6": {
+    "id": "breakage-smoke-20260307151759-66bdd6",
+    "name": "Breakage Smoke",
+    "user_id": 2,
+    "user_email": "breakage_test@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "Victoria BC",
+      "max_leads": "3",
+      "extra_notes": "focus on locally owned",
+      "discovery_query": "find roofing companies businesses in Victoria BC; focus: focus on locally owned; target around 3 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0142",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "Local fast quotes and reliable arrival",
+      "email": "hello@example.com",
+      "website": "https://example.com"
+    },
+    "sender_profile_key": "campaign_breakage-smoke-20260307151759-66bdd6",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/breakage-smoke-20260307151759-66bdd6.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [
+          "find roofing companies businesses in Victoria BC; focus: focus on locally owned; target around 3 leads"
+        ],
+        "ok": true,
+        "result": "business discovery worker completed: wrote 8 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; stored 8 lead rows in workspace/data/assistant.db",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 16 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 16 contact rows in workspace/data/assistant.db (source=db)",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [
+          "--sender-profile-key",
+          "campaign_breakage-smoke-20260307151759-66bdd6",
+          "--campaign-prompt-path",
+          "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/breakage-smoke-20260307151759-66bdd6.txt"
+        ],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 17 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 17 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_breakage-smoke-20260307151759-66bdd6, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/breakage-smoke-20260307151759-66bdd6.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 17,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "created_at": "2026-03-07T23:18:12.713459+00:00",
+    "updated_at": "2026-03-07T23:18:12.713465+00:00"
+  },
+  "breakage-smoke-2-20260307151839-28a25a": {
+    "id": "breakage-smoke-2-20260307151839-28a25a",
+    "name": "Breakage Smoke 2",
+    "user_id": 2,
+    "user_email": "breakage_test@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "Victoria BC",
+      "max_leads": "3",
+      "extra_notes": "focus on locally owned",
+      "discovery_query": "find roofing companies businesses in Victoria BC; focus: focus on locally owned; target around 3 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0142",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "Local fast quotes and reliable arrival",
+      "email": "hello@example.com",
+      "website": "https://example.com"
+    },
+    "sender_profile_key": "campaign_breakage-smoke-2-20260307151839-28a25a",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/breakage-smoke-2-20260307151839-28a25a.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [
+          "find roofing companies businesses in Victoria BC; focus: focus on locally owned; target around 3 leads"
+        ],
+        "ok": true,
+        "result": "business discovery worker completed: wrote 8 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; stored 8 lead rows in workspace/data/assistant.db",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 24 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 24 contact rows in workspace/data/assistant.db (source=db)",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [
+          "--sender-profile-key",
+          "campaign_breakage-smoke-2-20260307151839-28a25a",
+          "--campaign-prompt-path",
+          "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/breakage-smoke-2-20260307151839-28a25a.txt"
+        ],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 26 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 26 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_breakage-smoke-2-20260307151839-28a25a, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/breakage-smoke-2-20260307151839-28a25a.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 26,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "created_at": "2026-03-07T23:18:57.590687+00:00",
+    "updated_at": "2026-03-07T23:18:57.590701+00:00"
+  },
+  "spring-realtor-outreach-20260307160237-1f4a7d": {
+    "id": "spring-realtor-outreach-20260307160237-1f4a7d",
+    "name": "spring realtor outreach",
+    "user_id": 3,
+    "user_email": "theot865@icloud.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "realtors",
+      "location": "Victoria BC",
+      "max_leads": "1",
+      "extra_notes": "",
+      "discovery_query": "find realtors businesses in Victoria BC; target around 1 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning",
+        "siding wash"
+      ],
+      "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes",
+      "email": "theot865@icloud.com",
+      "website": "gmail.com"
+    },
+    "sender_profile_key": "campaign_spring-realtor-outreach-20260307160237-1f4a7d",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/spring-realtor-outreach-20260307160237-1f4a7d.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [
+          "find realtors businesses in Victoria BC; target around 1 leads"
+        ],
+        "ok": true,
+        "result": "business discovery worker completed: wrote 8 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; stored 8 lead rows in workspace/data/assistant.db",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 32 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 32 contact rows in workspace/data/assistant.db (source=db)",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [
+          "--sender-profile-key",
+          "campaign_spring-realtor-outreach-20260307160237-1f4a7d",
+          "--campaign-prompt-path",
+          "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/spring-realtor-outreach-20260307160237-1f4a7d.txt"
+        ],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 36 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 36 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_spring-realtor-outreach-20260307160237-1f4a7d, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/spring-realtor-outreach-20260307160237-1f4a7d.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 36,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "created_at": "2026-03-08T00:03:01.215499+00:00",
+    "updated_at": "2026-03-08T00:03:01.215507+00:00"
+  },
+  "spring-realtor-outreach-victoria-20260308175330-31a5d8": {
+    "id": "spring-realtor-outreach-victoria-20260308175330-31a5d8",
+    "name": "Spring realtor outreach victoria",
+    "user_id": 3,
+    "user_email": "theot865@icloud.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "realtors",
+      "location": "Victoria BC",
+      "max_leads": "20",
+      "extra_notes": "Find individual realtors and their email addresses or phone numbers",
+      "discovery_query": "find realtors businesses in Victoria BC; focus: Find individual realtors and their email addresses or phone numbers; target around 20 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning",
+        "siding wash"
+      ],
+      "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_spring-realtor-outreach-victoria-20260308175330-31a5d8",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/spring-realtor-outreach-victoria-20260308175330-31a5d8.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [
+          "find realtors businesses in Victoria BC; focus: Find individual realtors and their email addresses or phone numbers; target around 20 leads"
+        ],
+        "ok": true,
+        "result": "business discovery worker completed: wrote 8 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; stored 8 lead rows in workspace/data/assistant.db",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 40 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 40 contact rows in workspace/data/assistant.db (source=db)",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [
+          "--sender-profile-key",
+          "campaign_spring-realtor-outreach-victoria-20260308175330-31a5d8",
+          "--campaign-prompt-path",
+          "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/spring-realtor-outreach-victoria-20260308175330-31a5d8.txt"
+        ],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 48 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 48 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_spring-realtor-outreach-victoria-20260308175330-31a5d8, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/spring-realtor-outreach-victoria-20260308175330-31a5d8.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 48,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "created_at": "2026-03-09T00:53:59.070443+00:00",
+    "updated_at": "2026-03-09T00:53:59.070448+00:00"
+  },
+  "quality-realtor-test-20260308180929-e2b1d0": {
+    "id": "quality-realtor-test-20260308180929-e2b1d0",
+    "name": "Quality Realtor Test",
+    "user_id": 2,
+    "user_email": "breakage_test@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "realtors",
+      "location": "Victoria BC",
+      "max_leads": "30",
+      "extra_notes": "Find individual realtors and their email addresses or phone numbers",
+      "discovery_query": "find realtors businesses in Victoria BC; focus: Find individual realtors and their email addresses or phone numbers; target around 30 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0142",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "Local fast quotes and reliable arrival",
+      "email": "hello@example.com",
+      "website": "https://example.com"
+    },
+    "sender_profile_key": "campaign_quality-realtor-test-20260308180929-e2b1d0",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/quality-realtor-test-20260308180929-e2b1d0.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [
+          "find realtors businesses in Victoria BC; focus: Find individual realtors and their email addresses or phone numbers; target around 30 leads"
+        ],
+        "ok": true,
+        "result": "business discovery worker completed: wrote 8 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; stored 8 lead rows in workspace/data/assistant.db",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 48 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 48 contact rows in workspace/data/assistant.db (source=db)",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [
+          "--sender-profile-key",
+          "campaign_quality-realtor-test-20260308180929-e2b1d0",
+          "--campaign-prompt-path",
+          "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/quality-realtor-test-20260308180929-e2b1d0.txt"
+        ],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 64 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 64 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_quality-realtor-test-20260308180929-e2b1d0, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/quality-realtor-test-20260308180929-e2b1d0.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 64,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "created_at": "2026-03-09T01:10:00.339436+00:00",
+    "updated_at": "2026-03-09T01:10:00.339441+00:00"
+  },
+  "integration-roofing-campaign-20260308233958-d50a72": {
+    "id": "integration-roofing-campaign-20260308233958-d50a72",
+    "name": "Integration Roofing Campaign",
+    "user_id": 4,
+    "user_email": "campaigntest-8e289df4@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "victoria bc",
+      "max_leads": "10",
+      "extra_notes": "company_mode quality check",
+      "discovery_query": "find roofing companies businesses in victoria bc; focus: company_mode quality check; target around 10 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_integration-roofing-campaign-20260308233958-d50a72",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/integration-roofing-campaign-20260308233958-d50a72.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [],
+        "ok": true,
+        "result": "business discovery worker completed: queries=24, raw_candidates=119, directory_pages_followed=8, child_profile_links_extracted=35, parent_pages_expanded=16, parent_child_profile_links_followed=117, kept_after_source=57, validated_saved=35; target_type=roofer, discovery_mode=company_mode, next_action=tighten_sources; target_validated=30; output=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; rejected=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_rejected.csv",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 899 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 899 contact rows in workspace/data/assistant.db (source=db); coverage total=899 email=514 phone=728 both=514 neither=171; summary=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_summary.json",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 1121 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 1121 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_integration-roofing-campaign-20260308233958-d50a72, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/integration-roofing-campaign-20260308233958-d50a72.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 1121,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {
+      "campaign_id": "integration-roofing-campaign-20260308233958-d50a72",
+      "leads_found": 2,
+      "emails_found": 514,
+      "phones_found": 728,
+      "drafts_generated": 1121
+    },
+    "created_at": "2026-03-09T06:39:58.402553+00:00",
+    "updated_at": "2026-03-09T07:04:17.088504+00:00",
+    "last_run_at": "2026-03-09T07:04:17.088380+00:00"
+  },
+  "integration-dentist-campaign-20260308234637-6345f4": {
+    "id": "integration-dentist-campaign-20260308234637-6345f4",
+    "name": "Integration Dentist Campaign",
+    "user_id": 5,
+    "user_email": "campaigntest-4f450714@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "dentists",
+      "location": "saanich bc",
+      "max_leads": "5",
+      "extra_notes": "",
+      "discovery_query": "find dentists businesses in saanich bc; target around 5 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_integration-dentist-campaign-20260308234637-6345f4",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/integration-dentist-campaign-20260308234637-6345f4.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [],
+        "ok": true,
+        "result": "business discovery worker completed: queries=24, raw_candidates=117, directory_pages_followed=8, child_profile_links_extracted=25, parent_pages_expanded=11, parent_child_profile_links_followed=176, kept_after_source=46, validated_saved=11; target_type=dentist, discovery_mode=company_mode, next_action=tighten_sources; target_validated=30; output=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; rejected=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_rejected.csv",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 910 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 910 contact rows in workspace/data/assistant.db (source=db); coverage total=910 email=517 phone=734 both=517 neither=176; summary=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_summary.json",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 1157 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 1157 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_integration-dentist-campaign-20260308234637-6345f4, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/integration-dentist-campaign-20260308234637-6345f4.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 1161,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {
+      "campaign_id": "integration-dentist-campaign-20260308234637-6345f4",
+      "leads_found": 4,
+      "emails_found": 517,
+      "phones_found": 734,
+      "drafts_generated": 1157
+    },
+    "created_at": "2026-03-09T06:46:37.834357+00:00",
+    "updated_at": "2026-03-09T07:10:38.539115+00:00",
+    "last_run_at": "2026-03-09T07:10:38.539027+00:00"
+  },
+  "route-campaign-smoke-20260308235223-64cc59": {
+    "id": "route-campaign-smoke-20260308235223-64cc59",
+    "name": "Route Campaign Smoke",
+    "user_id": 6,
+    "user_email": "campaignsvc-e99f6ce4@example.com",
+    "status": "created",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "victoria bc",
+      "max_leads": "5",
+      "extra_notes": "",
+      "discovery_query": "find roofing companies businesses in victoria bc; target around 5 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_route-campaign-smoke-20260308235223-64cc59",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/route-campaign-smoke-20260308235223-64cc59.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T06:52:23.061936+00:00",
+    "updated_at": "2026-03-09T06:52:23.061940+00:00"
+  },
+  "service-full-run-campaign-20260308235223-664406": {
+    "id": "service-full-run-campaign-20260308235223-664406",
+    "name": "Service Full Run Campaign",
+    "user_id": 6,
+    "user_email": "campaignsvc-e99f6ce4@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "dentists",
+      "location": "saanich bc",
+      "max_leads": "8",
+      "extra_notes": "find company websites with contact details",
+      "discovery_query": "find dentists businesses in saanich bc; focus: find company websites with contact details; target around 8 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_service-full-run-campaign-20260308235223-664406",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/service-full-run-campaign-20260308235223-664406.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [],
+        "ok": true,
+        "result": "business discovery worker completed: queries=24, raw_candidates=113, directory_pages_followed=8, child_profile_links_extracted=15, parent_pages_expanded=4, parent_child_profile_links_followed=64, kept_after_source=23, validated_saved=4; target_type=dentist, discovery_mode=company_mode, next_action=expand_queries; target_validated=30; output=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery.csv; rejected=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_rejected.csv",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 914 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_enriched.csv; stored 914 contact rows in workspace/data/assistant.db (source=db); coverage total=914 email=519 phone=728 both=519 neither=186; summary=/Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_summary.json",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 1210 rows to /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/business_discovery_outreach.csv; stored 1210 draft rows in workspace/data/assistant.db (source=db, sender_profile=campaign_service-full-run-campaign-20260308235223-664406, campaign_prompt=/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/service-full-run-campaign-20260308235223-664406.txt)",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 1210,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {
+      "campaign_id": "service-full-run-campaign-20260308235223-664406",
+      "leads_found": 40,
+      "emails_found": 519,
+      "phones_found": 728,
+      "drafts_generated": 1210
+    },
+    "created_at": "2026-03-09T06:52:23.062951+00:00",
+    "updated_at": "2026-03-09T07:13:59.260316+00:00",
+    "last_run_at": "2026-03-09T07:13:59.260221+00:00"
+  },
+  "route-smoke-campaign-20260308235844-b81a50": {
+    "id": "route-smoke-campaign-20260308235844-b81a50",
+    "name": "Route Smoke Campaign",
+    "user_id": 7,
+    "user_email": "route-smoke-42a8f8d4@example.com",
+    "status": "created",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "victoria bc",
+      "max_leads": "5",
+      "extra_notes": "",
+      "discovery_query": "find roofing companies businesses in victoria bc; target around 5 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_route-smoke-campaign-20260308235844-b81a50",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/route-smoke-campaign-20260308235844-b81a50.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T06:58:44.994587+00:00",
+    "updated_at": "2026-03-09T06:58:44.994591+00:00"
+  },
+  "pipeline-2026-03-08-23-58-50-20260308235850-8d5e9d": {
+    "id": "pipeline-2026-03-08-23-58-50-20260308235850-8d5e9d",
+    "name": "pipeline 2026-03-08 23:58:50",
+    "user_id": 0,
+    "user_email": "",
+    "status": "created",
+    "lead_request": {
+      "audience": "local businesses",
+      "location": "Victoria BC",
+      "max_leads": "",
+      "extra_notes": "",
+      "discovery_query": "find dentists in saanich bc"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning",
+        "siding wash"
+      ],
+      "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes"
+    },
+    "sender_profile_key": "pressure_washing_buddy",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/pipeline-2026-03-08-23-58-50-20260308235850-8d5e9d.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T06:58:50.620870+00:00",
+    "updated_at": "2026-03-09T06:58:50.620877+00:00"
+  },
+  "service-summary-demo-20260309000509-2ee72a": {
+    "id": "service-summary-demo-20260309000509-2ee72a",
+    "name": "Service Summary Demo",
+    "user_id": 0,
+    "user_email": "",
+    "status": "created",
+    "lead_request": {
+      "audience": "dentists",
+      "location": "saanich bc",
+      "max_leads": "5",
+      "extra_notes": "",
+      "discovery_query": "find dentists businesses in saanich bc; target around 5 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_service-summary-demo-20260309000509-2ee72a",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/service-summary-demo-20260309000509-2ee72a.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T07:05:09.287010+00:00",
+    "updated_at": "2026-03-09T07:05:09.287135+00:00"
+  },
+  "orchestration-test-campaign-20260309000909-3e8a3b": {
+    "id": "orchestration-test-campaign-20260309000909-3e8a3b",
+    "name": "Orchestration Test Campaign",
+    "user_id": 8,
+    "user_email": "campaign_orchestration_7e8defa5@example.com",
+    "status": "created",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "Victoria BC",
+      "max_leads": "10",
+      "extra_notes": "focus on local owner-operated businesses",
+      "discovery_query": "find roofing companies businesses in Victoria BC; focus: focus on local owner-operated businesses; target around 10 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning"
+      ],
+      "angle": "fast local quotes and reliable scheduling",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_orchestration-test-campaign-20260309000909-3e8a3b",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/orchestration-test-campaign-20260309000909-3e8a3b.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T07:09:09.983006+00:00",
+    "updated_at": "2026-03-09T07:09:09.983009+00:00"
+  },
+  "orchestration-route-created-campaign-20260309001341-7ba0b7": {
+    "id": "orchestration-route-created-campaign-20260309001341-7ba0b7",
+    "name": "Orchestration Route Created Campaign",
+    "user_id": 9,
+    "user_email": "campaign_orch_9cf71e42@example.com",
+    "status": "created",
+    "lead_request": {
+      "audience": "dentists",
+      "location": "Saanich BC",
+      "max_leads": "8",
+      "extra_notes": "local clinics only",
+      "discovery_query": "find dentists businesses in Saanich BC; focus: local clinics only; target around 8 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_orchestration-route-created-campaign-20260309001341-7ba0b7",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/orchestration-route-created-campaign-20260309001341-7ba0b7.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T07:13:41.245950+00:00",
+    "updated_at": "2026-03-09T07:13:41.245954+00:00"
+  },
+  "pipeline-2026-03-09-00-17-53-20260309001753-9c837c": {
+    "id": "pipeline-2026-03-09-00-17-53-20260309001753-9c837c",
+    "name": "pipeline 2026-03-09 00:17:53",
+    "user_id": 0,
+    "user_email": "",
+    "status": "created",
+    "lead_request": {
+      "audience": "local businesses",
+      "location": "Victoria BC",
+      "max_leads": "",
+      "extra_notes": "",
+      "discovery_query": "find dentists in saanich bc"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning",
+        "patio cleaning",
+        "siding wash"
+      ],
+      "angle": "local pressure washing service with quick quotes, reliable scheduling, and clean finishes"
+    },
+    "sender_profile_key": "pressure_washing_buddy",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/pipeline-2026-03-09-00-17-53-20260309001753-9c837c.txt",
+    "worker_results": [],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {},
+    "created_at": "2026-03-09T07:17:53.524056+00:00",
+    "updated_at": "2026-03-09T07:17:53.524059+00:00"
+  },
+  "campaignservice-refactor-test-20260309002426-6ed96f": {
+    "id": "campaignservice-refactor-test-20260309002426-6ed96f",
+    "name": "CampaignService Refactor Test",
+    "user_id": 10,
+    "user_email": "campaign_service_refactor_38c3de00@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "Victoria BC",
+      "max_leads": "10",
+      "extra_notes": "owner-operated",
+      "discovery_query": "find roofing companies businesses in Victoria BC; focus: owner-operated; target around 10 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning",
+        "walkway cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_campaignservice-refactor-test-20260309002426-6ed96f",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/campaignservice-refactor-test-20260309002426-6ed96f.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [],
+        "ok": true,
+        "result": "business discovery worker completed: generated 1 stub lead",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: generated 1 enriched row",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [],
+        "ok": true,
+        "result": "business outreach worker completed: generated 1 outreach draft",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 1,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {
+      "campaign_id": "campaignservice-refactor-test-20260309002426-6ed96f",
+      "leads_found": 1,
+      "emails_found": 1,
+      "phones_found": 1,
+      "drafts_generated": 1
+    },
+    "created_at": "2026-03-09T07:24:26.010393+00:00",
+    "updated_at": "2026-03-09T07:24:26.012567+00:00",
+    "last_run_at": "2026-03-09T07:24:26.012473+00:00"
+  },
+  "diagnostics-campaign-20260309005506-083859": {
+    "id": "diagnostics-campaign-20260309005506-083859",
+    "name": "Diagnostics Campaign",
+    "user_id": 11,
+    "user_email": "diag_test_87de4901@example.com",
+    "status": "completed",
+    "lead_request": {
+      "audience": "roofing companies",
+      "location": "Victoria BC",
+      "max_leads": "10",
+      "extra_notes": "",
+      "discovery_query": "find roofing companies businesses in Victoria BC; target around 10 leads"
+    },
+    "sender": {
+      "name": "Theo Taylor",
+      "business": "Pressure Washing Buddy",
+      "city": "Victoria BC",
+      "phone": "250-555-0134",
+      "services": [
+        "driveway cleaning"
+      ],
+      "angle": "local quick quotes",
+      "email": "",
+      "website": ""
+    },
+    "sender_profile_key": "campaign_diagnostics-campaign-20260309005506-083859",
+    "campaign_prompt_path": "/Users/theotaylorassistant/ai/assistant_v2/workspace/campaigns/diagnostics-campaign-20260309005506-083859.txt",
+    "worker_results": [
+      {
+        "worker": "business_discovery",
+        "args": [],
+        "ok": true,
+        "result": "business discovery worker completed: queries=8, raw_candidates=12, kept_after_source=5, validated_saved=2; output=workspace/leads/business_discovery.csv; rejected=workspace/leads/business_discovery_rejected.csv",
+        "error": ""
+      },
+      {
+        "worker": "business_enrichment",
+        "args": [],
+        "ok": true,
+        "result": "business enrichment worker completed: wrote 2 rows to workspace/leads/business_discovery_enriched.csv; coverage total=2 email=1 phone=1 both=0 neither=0; summary=workspace/leads/business_discovery_summary.json",
+        "error": ""
+      },
+      {
+        "worker": "business_outreach",
+        "args": [],
+        "ok": true,
+        "result": "business outreach worker completed: wrote 2 rows to workspace/leads/business_discovery_outreach.csv; stored 2 draft rows",
+        "error": ""
+      }
+    ],
+    "assigned_draft_count": 0,
+    "artifacts": [
+      "workspace/leads/business_discovery.csv",
+      "workspace/leads/business_discovery_enriched.csv",
+      "workspace/leads/business_discovery_outreach.csv"
+    ],
+    "summary": {
+      "campaign_id": "diagnostics-campaign-20260309005506-083859",
+      "leads_found": 2,
+      "emails_found": 1,
+      "phones_found": 1,
+      "drafts_generated": 2
+    },
+    "diagnostics": {
+      "discovery": {
+        "raw_candidates": 12,
+        "validated_saved": 2,
+        "rejected_count": 3,
+        "top_reject_reasons": [
+          {
+            "reason": "rejected generic/noisy lead name",
+            "count": 2
+          },
+          {
+            "reason": "rejected by domain diversity cap (person)",
+            "count": 1
+          }
+        ]
+      },
+      "enrichment": {
+        "total_leads": 2,
+        "leads_with_email": 1,
+        "leads_with_phone": 1,
+        "leads_with_both": 0,
+        "leads_with_neither": 0
+      },
+      "outreach": {
+        "drafts_generated": 2
+      }
+    },
+    "created_at": "2026-03-09T07:55:06.122174+00:00",
+    "updated_at": "2026-03-09T07:55:06.123899+00:00",
+    "last_run_at": "2026-03-09T07:55:06.123805+00:00"
+  }
+}

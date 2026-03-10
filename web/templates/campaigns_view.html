@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% block title %}Campaign {{ campaign.id }} | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Campaign: {{ campaign.name }}</h2>
+  <p><strong>ID:</strong> <code>{{ campaign.id }}</code></p>
+  <p><strong>Status:</strong> <code>{{ campaign.status }}</code></p>
+  <p><strong>Created:</strong> {{ campaign.created_at or "-" }}</p>
+  <p><strong>Sender profile key:</strong> <code>{{ campaign.sender_profile_key }}</code></p>
+  <p><strong>Campaign prompt:</strong> <code>{{ campaign.campaign_prompt_path }}</code></p>
+  <p><strong>Drafts assigned to your account:</strong> {{ campaign.assigned_draft_count or 0 }}</p>
+</section>
+
+<section class="card">
+  <h3>Lead Request</h3>
+  <p><strong>Audience:</strong> {{ campaign.lead_request.audience }}</p>
+  <p><strong>Location:</strong> {{ campaign.lead_request.location }}</p>
+  <p><strong>Max leads:</strong> {{ campaign.lead_request.max_leads or "(not set)" }}</p>
+  <p><strong>Extra notes:</strong> {{ campaign.lead_request.extra_notes or "(none)" }}</p>
+  <p><strong>Discovery query:</strong> {{ campaign.lead_request.discovery_query }}</p>
+</section>
+
+<section class="card">
+  <h3>Sender Summary</h3>
+  <p><strong>Name:</strong> {{ campaign.sender.name }}</p>
+  <p><strong>Business:</strong> {{ campaign.sender.business }}</p>
+  <p><strong>City:</strong> {{ campaign.sender.city }}</p>
+  <p><strong>Phone:</strong> {{ campaign.sender.phone }}</p>
+  <p><strong>Email:</strong> {{ campaign.sender.email or "(not set)" }}</p>
+  <p><strong>Website:</strong> {{ campaign.sender.website or "(not set)" }}</p>
+  <p><strong>Services:</strong>
+    {% if campaign.sender.services %}
+      {% for service in campaign.sender.services %}
+        <code>{{ service }}</code>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    {% else %}
+      (none)
+    {% endif %}
+  </p>
+  <p><strong>Unique angle:</strong> {{ campaign.sender.angle or "(none)" }}</p>
+</section>
+
+<section class="card">
+  <h3>Campaign Summary</h3>
+  {% set summary = campaign.summary or {} %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total leads found</td>
+        <td>{{ summary.leads_found or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Leads with email</td>
+        <td>{{ summary.emails_found or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Leads with phone</td>
+        <td>{{ summary.phones_found or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Drafts generated</td>
+        <td>{{ summary.drafts_generated or 0 }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h3>Pipeline Diagnostics</h3>
+  {% set diagnostics = campaign.diagnostics or {} %}
+  {% set discovery = diagnostics.discovery or {} %}
+  {% set enrichment = diagnostics.enrichment or {} %}
+  {% set outreach = diagnostics.outreach or {} %}
+
+  <h4>Discovery</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Raw candidates</td>
+        <td>{{ discovery.raw_candidates or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Validated and saved</td>
+        <td>{{ discovery.validated_saved or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Rejected count</td>
+        <td>{{ discovery.rejected_count or 0 }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Top reject reasons:</strong></p>
+  {% if discovery.top_reject_reasons %}
+    <ul class="artifact-list">
+      {% for item in discovery.top_reject_reasons %}
+        <li><code>{{ item.reason }}</code> — {{ item.count }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>(none recorded)</p>
+  {% endif %}
+
+  <h4>Enrichment</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total leads processed</td>
+        <td>{{ enrichment.total_leads or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Leads with email</td>
+        <td>{{ enrichment.leads_with_email or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Leads with phone</td>
+        <td>{{ enrichment.leads_with_phone or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Leads with both</td>
+        <td>{{ enrichment.leads_with_both or 0 }}</td>
+      </tr>
+      <tr>
+        <td>Leads with neither</td>
+        <td>{{ enrichment.leads_with_neither or 0 }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Outreach</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Drafts generated</td>
+        <td>{{ outreach.drafts_generated or 0 }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h3>Worker Results</h3>
+  {% if campaign.worker_results %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Worker</th>
+          <th>Args</th>
+          <th>Status</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in campaign.worker_results %}
+          <tr>
+            <td><code>{{ result.worker }}</code></td>
+            <td>
+              {% if result.args %}
+                {% for arg in result.args %}
+                  <code>{{ arg }}</code>{% if not loop.last %} {% endif %}
+                {% endfor %}
+              {% else %}
+                (none)
+              {% endif %}
+            </td>
+            <td>
+              {% if result.ok %}
+                <span class="status-pill supported">ok</span>
+              {% else %}
+                <span class="status-pill unsupported">failed</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if result.ok %}
+                {{ result.result or "completed" }}
+              {% else %}
+                <span class="error">{{ result.error or "Worker failed." }}</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No worker activity recorded.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h3>Latest Artifacts</h3>
+  <ul class="artifact-list">
+    {% for artifact in artifact_entries %}
+      <li>
+        {% if artifact.available %}
+          <a href="{{ artifact.download_url }}"><code>{{ artifact.path }}</code></a>
+          {% if artifact.modified_time %}
+            <span> (updated {{ artifact.modified_time }}, {{ artifact.size_bytes }} bytes)</span>
+          {% endif %}
+        {% else %}
+          <code>{{ artifact.path }}</code> <span>(not found yet)</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="quick-actions">
+    <a href="/leads">Leads Overview</a>
+    <a href="/drafts">Draft Review</a>
+    <a href="/files">Browse Files</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+Goal:
+Offer a quick quote for exterior cleaning
+
+Audience:
+roofing companies in Victoria BC
+
+Tone:
+Friendly and concise
+
+Offer:
+Offer a quick quote for exterior cleaning
+
+CallToAction:
+Reply for a quick quote
+
+SenderContext:
+City: Victoria BC
+Services: driveway cleaning, walkway cleaning, patio cleaning
+Angle: fast local quotes and reliable scheduling

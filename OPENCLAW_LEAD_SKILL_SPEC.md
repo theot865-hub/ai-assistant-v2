@@ -1,0 +1,7 @@
+- skill name: lead-pipeline
+- command to run: /Users/theotaylorassistant/ai/assistant_v2/run_lead_pipeline.sh
+- success output file: /Users/theotaylorassistant/ai/assistant_v2/workspace/leads/all_realtor_leads.csv
+- success summary fields:
+  - total leads
+  - REW count
+  - RankMyAgent count

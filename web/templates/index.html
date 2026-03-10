@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block title %}Home | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Command Console</h2>
+  <p>This web app is connected to <code>{{ backend_url }}</code>.</p>
+  <form method="post" action="/command" class="command-form">
+    <label for="command">Command</label>
+    <input
+      id="command"
+      name="command"
+      type="text"
+      placeholder="Example: run pipeline for victoria pressure washing businesses"
+      value="{{ command_text }}"
+      required
+    >
+    <label for="sender_profile_key">Sender profile (used for business outreach)</label>
+    <select id="sender_profile_key" name="sender_profile_key">
+      {% for profile_key in sender_profile_options %}
+        <option value="{{ profile_key }}" {% if profile_key == selected_sender_profile_key %}selected{% endif %}>
+          {{ profile_key }}
+        </option>
+      {% endfor %}
+    </select>
+    <label for="campaign_prompt_path">Campaign prompt path</label>
+    <input
+      id="campaign_prompt_path"
+      name="campaign_prompt_path"
+      type="text"
+      value="{{ campaign_prompt_path }}"
+      placeholder="workspace/campaigns/realtor_pressure_washing.txt"
+    >
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="sender-preview">
+    <h3>Sender Preview</h3>
+    <div class="chat-row">
+      <strong>Selected:</strong> <code>{{ selected_sender_profile_key }}</code>
+      {% if sender_profile_valid %}
+        <span class="status-pill supported">valid</span>
+      {% else %}
+        <span class="status-pill unsupported">invalid</span>
+      {% endif %}
+    </div>
+    <div class="chat-row"><strong>Name:</strong> {{ selected_sender_profile.name or "(missing)" }}</div>
+    <div class="chat-row"><strong>Business:</strong> {{ selected_sender_profile.business or "(missing)" }}</div>
+    <div class="chat-row"><strong>City:</strong> {{ selected_sender_profile.city or "(missing)" }}</div>
+    <div class="chat-row"><strong>Phone:</strong> {{ selected_sender_profile.phone or "(missing)" }}</div>
+    <div class="chat-row"><strong>Angle:</strong> {{ selected_sender_profile.angle or "(missing)" }}</div>
+    <div class="chat-row">
+      <strong>Services:</strong>
+      {% if selected_sender_profile.services %}
+        {% for service in selected_sender_profile.services %}
+          <code>{{ service }}</code>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      {% else %}
+        <span>(none)</span>
+      {% endif %}
+    </div>
+    {% if sender_profile_errors %}
+      <ul class="artifact-list">
+        {% for err in sender_profile_errors %}
+          <li class="error">{{ err }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+  <div class="quick-actions">
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="run pipeline">
+      <input type="hidden" name="sender_profile_key" value="{{ selected_sender_profile_key }}">
+      <input type="hidden" name="campaign_prompt_path" value="{{ campaign_prompt_path }}">
+      <button type="submit">Run pipeline</button>
+    </form>
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="run leads">
+      <input type="hidden" name="sender_profile_key" value="{{ selected_sender_profile_key }}">
+      <input type="hidden" name="campaign_prompt_path" value="{{ campaign_prompt_path }}">
+      <button type="submit">Run leads</button>
+    </form>
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="find businesses in victoria">
+      <input type="hidden" name="sender_profile_key" value="{{ selected_sender_profile_key }}">
+      <input type="hidden" name="campaign_prompt_path" value="{{ campaign_prompt_path }}">
+      <button type="submit">Run business discovery</button>
+    </form>
+    <form method="post" action="/command">
+      <input type="hidden" name="command" value="run outreach">
+      <input type="hidden" name="sender_profile_key" value="{{ selected_sender_profile_key }}">
+      <input type="hidden" name="campaign_prompt_path" value="{{ campaign_prompt_path }}">
+      <button type="submit">Run outreach</button>
+    </form>
+  </div>
+
+  <div class="capability-panel">
+    <h3>What I can do</h3>
+    <p>Rule-based command routing. <a href="/capabilities">View full capabilities</a>.</p>
+    <ul class="example-list">
+      {% for example in what_i_can_do_examples %}
+        <li><code>{{ example }}</code></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Console History</h2>
+  {% if error_data %}
+    <p class="error">{{ error_data.error }}</p>
+  {% endif %}
+  {% if interactions %}
+    <div class="chat-history">
+      {% for item in interactions | reverse %}
+      <div class="chat-turn">
+        <div class="chat-bubble user">
+          <div class="chat-meta">{{ item.timestamp }}</div>
+          <div class="chat-text">{{ item.command_text }}</div>
+        </div>
+        <div class="chat-bubble assistant">
+          <div class="chat-meta">{{ item.timestamp }}</div>
+          <div class="chat-row"><strong>Interpretation:</strong> {{ item.interpretation }}</div>
+          <div class="chat-row">
+            <strong>Capability check:</strong>
+            <span class="status-pill {{ item.capability_status_key }}">{{ item.capability_status }}</span>
+            <span>{{ item.capability_hint }}</span>
+          </div>
+          <div class="chat-row">
+            <strong>Chosen worker(s):</strong>
+            {% if item.chosen_workers %}
+              {% for worker in item.chosen_workers %}
+                <code>{{ worker }}</code>{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            {% else %}
+              <span>(none)</span>
+            {% endif %}
+          </div>
+          <div class="chat-row"><strong>Result:</strong> {{ item.result_summary }}</div>
+          <div class="chat-row"><strong>Sender profile:</strong> <code>{{ item.sender_profile_key }}</code></div>
+          <div class="chat-row"><strong>Campaign prompt:</strong> <code>{{ item.campaign_prompt_path }}</code></div>
+
+          {% if item.will_run %}
+            <div class="chat-row">
+              <strong>Will run:</strong>
+              <ul class="artifact-list">
+                {% for row in item.will_run %}
+                  <li>{{ row }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if item.will_not_run %}
+            <div class="chat-row">
+              <strong>Will NOT run:</strong>
+              <ul class="artifact-list">
+                {% for row in item.will_not_run %}
+                  <li>{{ row }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if item.expected_outputs %}
+            <div class="chat-row">
+              <strong>Expected output files:</strong>
+              <ul class="artifact-list">
+                {% for output_path in item.expected_outputs %}
+                  <li><code>{{ output_path }}</code></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if item.suggested_phrasing %}
+            <div class="chat-row">
+              <strong>Try phrasing like:</strong>
+              <ul class="artifact-list">
+                {% for suggestion in item.suggested_phrasing %}
+                  <li><code>{{ suggestion }}</code></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+
+        {% for step in item.steps %}
+          <div class="chat-bubble assistant step-detail">
+            <div class="chat-meta">{{ step.timestamp }}</div>
+            <div class="chat-row"><strong>Worker:</strong> <code>{{ step.requested_worker }}</code></div>
+            <div class="chat-row"><strong>Step result:</strong> {% if step.result_data.ok %}{{ step.result_data.result }}{% else %}<span class="error">{{ step.result_data.error }}</span>{% endif %}</div>
+            <div class="chat-row">
+              <strong>Artifacts:</strong>
+              {% if step.artifact_links %}
+                <ul class="artifact-list">
+                  {% for artifact in step.artifact_links %}
+                    <li>
+                      {% if artifact.available %}
+                        <a href="{{ artifact.download_url }}"><code>{{ artifact.path }}</code></a>
+                      {% else %}
+                        <code>{{ artifact.path }}</code>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <span>(none)</span>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No interactions yet. Submit a command to start.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+Goal:
+quick quote
+
+Audience:
+roofing companies in Victoria BC
+
+Tone:
+friendly
+
+Offer:
+quick quote
+
+CallToAction:
+reply
+
+SenderContext:
+City: Victoria BC
+Services: driveway cleaning
+Angle: local quick quotes

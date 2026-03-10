@@ -1,0 +1,19 @@
+Goal:
+Quick quote this week
+
+Audience:
+dentists in saanich bc
+
+Tone:
+Friendly and concise
+
+Offer:
+Quick quote this week
+
+CallToAction:
+Reply for pricing
+
+SenderContext:
+City: Victoria BC
+Services: driveway cleaning, walkway cleaning, patio cleaning
+Angle: local quick quotes

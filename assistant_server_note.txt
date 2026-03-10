@@ -1,0 +1,2 @@
+Test POST /run:
+curl -s -X POST http://127.0.0.1:8787/run -H 'Content-Type: application/json' -d '{"worker":"outreach","args":[]}'

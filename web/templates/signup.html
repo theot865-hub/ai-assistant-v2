@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Sign Up | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Create Account</h2>
+  <p>Use a local account for campaign ownership and Gmail connection.</p>
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+  <form method="post" action="/signup" class="campaign-form">
+    <div class="campaign-grid">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" value="{{ email }}" required>
+
+      <label for="password">Password (min 8 characters)</label>
+      <input id="password" name="password" type="password" required>
+    </div>
+    <div class="campaign-actions">
+      <button type="submit">Create account</button>
+    </div>
+  </form>
+  <p><a href="/login">Already have an account? Log in</a></p>
+</section>
+{% endblock %}

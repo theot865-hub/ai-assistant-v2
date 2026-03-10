@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Capabilities | Assistant v2 Web{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>System Capabilities</h2>
+  <p>This interface is rule-based and routes commands to local workers.</p>
+</section>
+
+<section class="card">
+  <h2>What The System Can Do</h2>
+  <ul class="artifact-list">
+    {% for item in system_can_do %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="card">
+  <h2>What It Cannot Do Yet</h2>
+  <ul class="artifact-list">
+    {% for item in system_cannot_do_yet %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Example Commands</h2>
+  <ul class="artifact-list">
+    {% for cmd in example_commands %}
+      <li><code>{{ cmd }}</code></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Output File Locations</h2>
+  <ul class="artifact-list">
+    {% for output_root in output_locations %}
+      <li><code>{{ output_root }}</code></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Worker Manifest</h2>
+  {% for capability in manifest_items %}
+    <div class="worker-card">
+      <h3><code>{{ capability.worker }}</code></h3>
+      <p><strong>What it does:</strong> {{ capability.what_it_does }}</p>
+      <p><strong>Required inputs:</strong></p>
+      <ul class="artifact-list">
+        {% for row in capability.required_inputs %}
+          <li>{{ row }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Outputs/Artifacts:</strong></p>
+      <ul class="artifact-list">
+        {% for row in capability.outputs %}
+          <li><code>{{ row }}</code></li>
+        {% endfor %}
+      </ul>
+      <p><strong>Known limitations:</strong></p>
+      <ul class="artifact-list">
+        {% for row in capability.limitations %}
+          <li>{{ row }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Examples:</strong></p>
+      <ul class="artifact-list">
+        {% for row in capability.examples %}
+          <li><code>{{ row }}</code></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</section>
+{% endblock %}

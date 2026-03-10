@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Assistant v2 Web{% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Assistant v2 Web</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/campaigns/new">New Campaign</a>
+      <a href="/capabilities">Capabilities</a>
+      <a href="/leads">Leads</a>
+      <a href="/drafts">Drafts</a>
+      <a href="/gmail/status">Gmail</a>
+      <a href="/runs">Runs</a>
+      <a href="/artifacts">Artifacts</a>
+      <a href="/files">Files</a>
+      {% if current_user %}
+        <span>Signed in: <code>{{ current_user.email }}</code></span>
+        <form method="post" action="/logout" style="display:inline">
+          <button type="submit">Log out</button>
+        </form>
+      {% else %}
+        <a href="/login">Login</a>
+        <a href="/signup">Sign up</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="container">
+    {% if flash_message %}
+      <section class="card">
+        <p>{{ flash_message }}</p>
+      </section>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
